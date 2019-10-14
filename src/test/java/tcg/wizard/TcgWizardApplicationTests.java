@@ -1,4 +1,4 @@
-package tzg.wizard;
+package tcg.wizard;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
