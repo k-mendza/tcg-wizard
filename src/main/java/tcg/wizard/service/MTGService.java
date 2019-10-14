@@ -2,10 +2,7 @@ package tcg.wizard.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import tcg.wizard.domain.MTGCard;
-
-import java.util.ArrayList;
-import java.util.List;
+import tcg.wizard.domain.MTGCardList;
 
 @Service
 public class MTGService {
@@ -16,8 +13,8 @@ public class MTGService {
         this.restTemplate = restTemplate;
     }
 
-    public List<MTGCard> getMtgCards(){
-        List<MTGCard> mtgCardList = new ArrayList<>();
+    public MTGCardList getMtgCards(){
+        MTGCardList mtgCardList = restTemplate.getForObject("https://www.mtgjson.com/json/AllCards.json", MTGCardList.class);
         return mtgCardList;
     }
 }
