@@ -1,5 +1,6 @@
 package tcg.wizard.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import java.util.Map;
 
 @Data
 @NoArgsConstructor
+@JsonDeserialize(using = MTGCardSetDeserializer.class)
 public class MTGCardSet {
     private int baseSetSize;
     private Map<Integer,String> boosterV3;
