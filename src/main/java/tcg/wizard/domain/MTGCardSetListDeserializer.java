@@ -32,6 +32,7 @@ public class MTGCardSetListDeserializer extends StdDeserializer<MTGCardSetList> 
 
     private MTGCardSet getMTGCardSetFromJsonNode(JsonNode arrayItem) {
         MTGCardSet cardSet = new MTGCardSet();
+        cardSet.setCode(arrayItem.get("code").asText());
         return cardSet;
     }
 }
