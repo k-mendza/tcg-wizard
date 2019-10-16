@@ -10,7 +10,6 @@ import java.util.Map;
 
 @Data
 @NoArgsConstructor
-@JsonDeserialize(using = MTGCardSetDeserializer.class)
 public class MTGCardSet {
     private int baseSetSize;
     private Map<Integer,String> boosterV3;
