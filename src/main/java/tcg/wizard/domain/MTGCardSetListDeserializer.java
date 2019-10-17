@@ -10,13 +10,9 @@ import java.io.IOException;
 
 public class MTGCardSetListDeserializer extends StdDeserializer<MTGCardSetList> {
 
-    public MTGCardSetListDeserializer() {
-        super(MTGCardSetList.class);
-    }
+    public MTGCardSetListDeserializer() { super(MTGCardSetList.class); }
 
-    public MTGCardSetListDeserializer(Class<?> vc) {
-        super(vc);
-    }
+    public MTGCardSetListDeserializer(Class<?> vc) { super(vc); }
 
     @Override
     public MTGCardSetList deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
