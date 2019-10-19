@@ -18,11 +18,9 @@ public class MTGCardSetListDeserializer extends StdDeserializer<MTGCardSetList> 
     public MTGCardSetList deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         MTGCardSetList cardSetList = new MTGCardSetList();
-        if (node.isArray()) {
             for (JsonNode arrayItem : node) {
                 cardSetList.getMtgCardSetList().add(getMTGCardSetFromJsonNode(arrayItem));
             }
-        }
         return cardSetList;
     }
 
