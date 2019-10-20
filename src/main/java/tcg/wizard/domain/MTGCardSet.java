@@ -12,7 +12,7 @@ import java.util.Map;
 @NoArgsConstructor
 public class MTGCardSet {
     private int baseSetSize;
-    private Map<Integer,String> boosterV3;
+//    private MTGBoosterV3 boosterV3;
     private List<MTGCard> cards;
     private String code;
     private boolean isFoilOnly;
