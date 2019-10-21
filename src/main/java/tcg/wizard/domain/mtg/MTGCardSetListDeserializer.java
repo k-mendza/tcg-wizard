@@ -33,6 +33,25 @@ public class MTGCardSetListDeserializer extends StdDeserializer<MTGCardSetList> 
         for (JsonNode node : jsonNode.get("cards")){
             MTGCard card = new MTGCard();
             card.setArtist(node.get("artist").asText());
+            card.setBorderColor(node.get("borderColor").asText());
+            for (JsonNode value : node.get("colorIdentity")) {
+                card.getColorIdentity().add(value.asText());
+            }
+            for (JsonNode value : node.get("colors")) {
+                card.getColors().add(value.asText());
+            }
+            card.setConvertedManaCost(node.get("convertedManaCost").asInt());
+            card.setEdhrecRank(node.get("edhrecRank").asInt());
+            card.setFrameVersion(node.get("frameVersion").asText());
+            card.setHasFoil(node.get("hasFoil").asBoolean());
+            card.setHasNonFoil(node.get("hasNonFoil").asBoolean());
+            card.setArena(node.get("isArena").asBoolean());
+            card.setMtgo(node.get("isMtgo").asBoolean());
+            card.setPaper(node.get("isPaper").asBoolean());
+            card.setLayout(node.get("layout").asText());
+//            for (JsonNode value : node.get("legalities")) {
+//                card.getLegalities().add(value.asText());
+//            }
             cardSet.getCards().add(card);
         }
         cardSet.setCode(jsonNode.get("code").asText());

@@ -1,12 +1,11 @@
 package tcg.wizard.domain.mtg.card;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 public class MTGCard {
     private String artist;
     private String borderColor;
@@ -34,4 +33,10 @@ public class MTGCard {
     private String originalType;
     private String power;
 
+    public MTGCard() {
+        this.colorIdentity = new ArrayList<>();
+        this.colors = new ArrayList<>();
+        this.legalities = new ArrayList<>();
+        this.originalText = new ArrayList<>();
+    }
 }
