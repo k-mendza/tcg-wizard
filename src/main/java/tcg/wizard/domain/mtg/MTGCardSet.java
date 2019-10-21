@@ -1,15 +1,14 @@
-package tcg.wizard.domain;
+package tcg.wizard.domain.mtg;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import tcg.wizard.domain.mtg.card.MTGCard;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @Data
-@NoArgsConstructor
 public class MTGCardSet {
     private int baseSetSize;
 //    private MTGBoosterV3 boosterV3;
@@ -29,4 +28,8 @@ public class MTGCardSet {
     private int totalSetSize;
     private Map<String,String> translations;
     private String type;
+
+    public MTGCardSet() {
+        this.cards = new ArrayList<>();
+    }
 }

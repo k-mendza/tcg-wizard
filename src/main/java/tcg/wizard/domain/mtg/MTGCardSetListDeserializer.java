@@ -1,10 +1,10 @@
-package tcg.wizard.domain;
+package tcg.wizard.domain.mtg;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import tcg.wizard.domain.mtg.card.MTGCard;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -16,7 +16,7 @@ public class MTGCardSetListDeserializer extends StdDeserializer<MTGCardSetList> 
     public MTGCardSetListDeserializer(Class<?> vc) { super(vc); }
 
     @Override
-    public MTGCardSetList deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public MTGCardSetList deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         MTGCardSetList cardSetList = new MTGCardSetList();
             for (JsonNode jsonNode : node) {
@@ -30,6 +30,11 @@ public class MTGCardSetListDeserializer extends StdDeserializer<MTGCardSetList> 
         cardSet.setBaseSetSize(jsonNode.get("baseSetSize").asInt());
         // TODO boosterV3
         // TODO cards
+        for (JsonNode node : jsonNode.get("cards")){
+            MTGCard card = new MTGCard();
+            card.setArtist(node.get("artist").asText());
+            cardSet.getCards().add(card);
+        }
         cardSet.setCode(jsonNode.get("code").asText());
         cardSet.setFoilOnly(jsonNode.get("isFoilOnly").asBoolean());
         cardSet.setOnlineOnly(jsonNode.get("isOnlineOnly").asBoolean());

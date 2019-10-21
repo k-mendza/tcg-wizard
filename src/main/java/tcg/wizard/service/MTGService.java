@@ -2,8 +2,8 @@ package tcg.wizard.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import tcg.wizard.domain.MTGCardList;
-import tcg.wizard.domain.MTGCardSetList;
+import tcg.wizard.domain.mtg.MTGCardList;
+import tcg.wizard.domain.mtg.MTGCardSetList;
 
 @Service
 public class MTGService {

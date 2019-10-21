@@ -1,4 +1,4 @@
-package tcg.wizard.domain;
+package tcg.wizard.domain.mtg;
 
 import lombok.Data;
 
